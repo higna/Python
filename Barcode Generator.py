@@ -1,11 +1,11 @@
-from flask import Flask, send_file, request, render_template_string
+from flask import Flask, send_file, request, render_template_string, url_for
 import barcode
 from barcode.writer import ImageWriter
 from io import BytesIO
 
 app = Flask(__name__)
 
-# HTML template for the form
+# HTML template with a CSS link
 html_template = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,7 @@ html_template = '''
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barcode Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <h1>Barcode Generator</h1>
