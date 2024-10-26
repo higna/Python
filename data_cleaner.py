@@ -54,6 +54,11 @@ columns_to_trim = ["Organization", "City", "State", "Variety", "Seed Class"]
 for column in columns_to_trim:
     data[column] = data[column].str.strip()
 
+# Capitalize the first letter of each word in the 'State' column
+columns_to_capitalize = ["State", "City"]
+for column in columns_to_capitalize:
+    data[column] = data[column].str.title()
+
 # Extract the first word from the Organization column and create a new column
 data["Organization Modified"] = data["Organization"].str.split().str[0]
 
