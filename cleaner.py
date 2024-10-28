@@ -11,8 +11,8 @@ import os
 
 # Folder paths
 folder_path = "./"
-master_file_path = "./.gitignore/master.csv"
-processed_file_path = "./.gitignore/processed.csv"
+master_file_path = "./master.csv"
+processed_file_path = "./processed.csv"
 
 # Clear the existing processed.csv file if it exists
 if os.path.exists(processed_file_path):
