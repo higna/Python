@@ -46,11 +46,9 @@ def login(username, password):
     except Exception as e:
         print(f"An error occurred during login: {e}")
     finally:
-        driver.quit()  # Ensure the driver is closed after operations
+        driver.quit() 
 
-# Use environment variables for credentials
-username = os.getenv("SEEDTRACKER_USERNAME", "your_username")
-password = os.getenv("SEEDTRACKER_PASSWORD", "your_password")
+
 
 # Call the login function
-login(username, password)
+login("username", "password")
