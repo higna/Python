@@ -1,7 +1,11 @@
 from PyPDF2 import PdfMerger
+import os
 
-# List of PDF files to merge
-pdf_files = ["file1.pdf", "file2.pdf", "file3.pdf"]
+# Folder containing the PDF files
+pdf_folder = "pdf_files"
+
+# List all PDF files in the folder
+pdf_files = [os.path.join(pdf_folder, file) for file in os.listdir(pdf_folder) if file.endswith(".pdf")]
 
 # Initialize the PdfMerger
 merger = PdfMerger()
@@ -11,7 +15,8 @@ for pdf in pdf_files:
     merger.append(pdf)
 
 # Write to a new PDF file
-merger.write("merged.pdf")
+output_file = "merged.pdf"
+merger.write(output_file)
 merger.close()
 
-print("PDFs merged successfully into 'merged.pdf'")
+print(f"PDFs merged successfully into '{output_file}'")
